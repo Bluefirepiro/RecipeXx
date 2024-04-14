@@ -24,8 +24,8 @@ class AddRecipeActivity : AppCompatActivity() {
         editTextInstructions = findViewById(R.id.editTextInstructions)
 
         // Initialize recipeList and adapter (assuming they are passed from the previous activity)
-        recipeList = intent.getParcelableArrayListExtra("recipeList") ?: mutableListOf()
-        adapter = RecipeAdapter(recipeList)
+       // recipeList = intent.getParcelableArrayListExtra("recipeList") ?: mutableListOf()
+       // adapter = RecipeAdapter(recipeList)
     }
 
     // Method to handle button click event

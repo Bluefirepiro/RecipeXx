@@ -22,7 +22,7 @@ class RecipeListActivity : AppCompatActivity() {
         recipeListView.layoutManager = LinearLayoutManager(this)
 
         // Initialize adapter with recipe list
-        adapter = RecipeAdapter(recipeList)
+       // adapter = RecipeAdapter(recipeList)
         recipeListView.adapter = adapter
     }
 
