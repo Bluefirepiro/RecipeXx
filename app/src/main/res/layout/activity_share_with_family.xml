@@ -22,6 +22,14 @@
         android:onClick="backToMainMenu"
         android:text="@string/main" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewFamilyMembers"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <include layout="@layout/list_item_family_member" />
+
+
 
 
     <!-- Add more UI elements as needed -->

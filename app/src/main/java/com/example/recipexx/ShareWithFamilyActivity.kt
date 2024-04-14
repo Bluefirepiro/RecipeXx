@@ -3,10 +3,17 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.example.recipexx.HomeActivity
-import com.example.recipexx.R
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 class ShareWithFamilyActivity : AppCompatActivity() {
+
+    private val familyMembers = listOf(
+        FamilyMember(1, "John"),
+        FamilyMember(2, "Jane"),
+        FamilyMember(3, "Alice"),
+        FamilyMember(4, "Bob")
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,6 +23,10 @@ class ShareWithFamilyActivity : AppCompatActivity() {
         fun backToMainMenu(view: View) {
             val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
+
+            val recyclerView: RecyclerView = findViewById(R.id.recyclerViewFamilyMembers)
+            recyclerView.layoutManager = LinearLayoutManager(this)
+            recyclerView.adapter = FamilyMemberAdapter(familyMembers)
         }
     }
 }

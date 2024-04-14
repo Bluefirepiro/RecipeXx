@@ -1,5 +1,4 @@
 package com.example.recipexx
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,8 +6,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 
-class RecipeAdapter(private val context: Context, private val recipeList: List<Recipe>) :
+class RecipeAdapter(private val context: RecipeListActivity, private val recipeList: List<Recipe>) :
     RecyclerView.Adapter<RecipeAdapter.RecipeViewHolder>() {
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.activity_recipe_list, parent, false)
@@ -34,5 +34,7 @@ class RecipeAdapter(private val context: Context, private val recipeList: List<R
             ingredientsTextView.text = recipe.ingredients.joinToString(separator = "\n")
         }
     }
+
+
 }
 
