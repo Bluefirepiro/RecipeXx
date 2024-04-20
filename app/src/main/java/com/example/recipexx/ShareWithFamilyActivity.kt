@@ -1,7 +1,10 @@
 package com.example.recipexx
+
+import HomeActivity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -19,14 +22,21 @@ class ShareWithFamilyActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_share_with_family)
 
-        // Initialize views and set up functionality for sharing with family
-        fun backToMainMenu(view: View) {
-            val intent = Intent(this, HomeActivity::class.java)
-            startActivity(intent)
+        val recyclerView: RecyclerView = findViewById(R.id.recyclerViewFamilyMembers)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        val adapter = FamilyMemberAdapter(familyMembers)
+        recyclerView.adapter = adapter
 
-            val recyclerView: RecyclerView = findViewById(R.id.recyclerViewFamilyMembers)
-            recyclerView.layoutManager = LinearLayoutManager(this)
-            recyclerView.adapter = FamilyMemberAdapter(familyMembers)
+        // Set click listener for each family member item
+        adapter.setOnItemClickListener { familyMember ->
+            // Handle click event here, e.g., show details or initiate sharing
+            Toast.makeText(this, "Clicked on ${familyMember.name}", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    // Function to go back to the main menu
+    fun backToMainMenu(view: View) {
+        val intent = Intent(this, HomeActivity::class.java)
+        startActivity(intent)
     }
 }

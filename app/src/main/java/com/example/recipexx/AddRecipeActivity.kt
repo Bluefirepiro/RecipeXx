@@ -1,11 +1,12 @@
-package com.example.recipexx
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.recipexx.R
+import com.example.recipexx.RecipeAdapter
 
 class AddRecipeActivity : AppCompatActivity() {
 
@@ -23,30 +24,25 @@ class AddRecipeActivity : AppCompatActivity() {
         editTextIngredients = findViewById(R.id.editTextIngredients)
         editTextInstructions = findViewById(R.id.editTextInstructions)
 
-        // Initialize recipeList and adapter (assuming they are passed from the previous activity)
-       // recipeList = intent.getParcelableArrayListExtra("recipeList") ?: mutableListOf()
-       // adapter = RecipeAdapter(recipeList)
+        // Retrieve the recipeList extra from the intent
+        recipeList = intent.getParcelableArrayListExtra<Recipe>("recipeList") ?: mutableListOf()
+        adapter = RecipeAdapter(this, recipeList)  // Pass 'this' as the context
     }
 
-    // Method to handle button click event
     fun backToMainMenu(view: View) {
         val intent = Intent(this, HomeActivity::class.java)
         startActivity(intent)
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     fun addRecipe(view: View) {
         val recipeName = editTextRecipeName.text.toString()
         val ingredients = editTextIngredients.text.toString().split("\n")
         val instructions = editTextInstructions.text.toString()
 
-        // Create a new Recipe object
         val recipe = Recipe(recipeName, ingredients, instructions)
-
-        // Add the recipe to the recipe list
         recipeList.add(recipe)
-
-        // Notify the adapter that the dataset has changed
         adapter.notifyDataSetChanged()
+
+        Toast.makeText(this, "Recipe added successfully", Toast.LENGTH_SHORT).show()
     }
 }
