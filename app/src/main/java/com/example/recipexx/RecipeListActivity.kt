@@ -13,7 +13,7 @@ class RecipeListActivity : AppCompatActivity() {
 
     private lateinit var recipeListView: RecyclerView
     private lateinit var adapter: RecipeAdapter
-    private var recipeList: MutableList<Recipe> = mutableListOf() // Initialize with an empty list
+    private var recipeList: MutableList<Recipe> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,8 +23,8 @@ class RecipeListActivity : AppCompatActivity() {
         recipeListView = findViewById(R.id.recyclerViewRecipes)
         recipeListView.layoutManager = LinearLayoutManager(this)
 
-        // Initialize adapter with recipe list
-       // adapter = RecipeAdapter(recipeList)
+        // Initialize adapter with an empty list initially
+        adapter = RecipeAdapter(this, recipeList)
         recipeListView.adapter = adapter
     }
 

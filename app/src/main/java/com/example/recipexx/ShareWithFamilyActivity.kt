@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
+
 class ShareWithFamilyActivity : AppCompatActivity() {
 
     private val familyMembers = listOf(
@@ -28,7 +29,7 @@ class ShareWithFamilyActivity : AppCompatActivity() {
         recyclerView.adapter = adapter
 
         // Set click listener for each family member item
-        adapter.setOnItemClickListener { familyMember ->
+        adapter.setOnItemClickListener { familyMember: FamilyMember ->
             // Handle click event here, e.g., show details or initiate sharing
             Toast.makeText(this, "Clicked on ${familyMember.name}", Toast.LENGTH_SHORT).show()
         }

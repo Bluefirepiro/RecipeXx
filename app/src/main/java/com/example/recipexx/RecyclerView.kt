@@ -27,4 +27,6 @@ class FamilyMemberAdapter(private val familyMembers: List<FamilyMember>) :
     override fun getItemCount(): Int {
         return familyMembers.size
     }
+
+
 }
