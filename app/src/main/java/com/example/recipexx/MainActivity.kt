@@ -8,6 +8,7 @@ import com.example.recipexx.R.layout
 import com.example.recipexx.RecipeListActivity
 import com.example.recipexx.ShareWithFamilyActivity
 
+
 class HomeActivity : AppCompatActivity() {
 
     private val recipesList = RecipeDataSource.getAllRecipes()  // Get the list of recipes from RecipeDataSource

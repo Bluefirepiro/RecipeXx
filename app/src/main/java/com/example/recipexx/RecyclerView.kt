@@ -28,5 +28,10 @@ class FamilyMemberAdapter(private val familyMembers: List<FamilyMember>) :
         return familyMembers.size
     }
 
+    fun setOnItemClickListener(listener: (FamilyMember) -> Unit) {
+
+
+    }
+
 
 }
